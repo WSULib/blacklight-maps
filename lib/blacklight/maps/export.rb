@@ -68,15 +68,30 @@ module BlacklightMaps
             end
           end
         when "show"
-          doc = @response_docs
-          return unless doc[geojson_field] || doc[coordinates_field]
-          if doc[geojson_field]
-            doc[geojson_field].uniq.each do |loc|
-              features.push(build_feature_from_geojson(loc))
+          if @response_docs.is_a? Array
+            @response_docs.each do |doc|
+              next unless doc[geojson_field] || doc[coordinates_field]
+              if doc[geojson_field]
+                doc[geojson_field].uniq.each do |loc|
+                  features.push(build_feature_from_geojson(loc))
+                end
+              elsif doc[coordinates_field]
+                doc[coordinates_field].uniq.each do |coords|
+                  features.push(build_feature_from_coords(coords))
+                end
+              end
             end
-          elsif doc[coordinates_field]
-            doc[coordinates_field].uniq.each do |coords|
-              features.push(build_feature_from_coords(coords))
+          else
+            doc = @response_docs
+            return unless doc[geojson_field] || doc[coordinates_field]
+            if doc[geojson_field]
+              doc[geojson_field].uniq.each do |loc|
+                features.push(build_feature_from_geojson(loc))
+              end
+            elsif doc[coordinates_field]
+              doc[coordinates_field].uniq.each do |coords|
+                features.push(build_feature_from_coords(coords))
+              end
             end
           end
       end
