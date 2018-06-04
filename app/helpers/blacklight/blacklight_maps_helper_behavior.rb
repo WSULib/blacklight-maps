@@ -33,8 +33,8 @@ module Blacklight::BlacklightMapsHelperBehavior
 
   # create a link to a location name facet value
   def link_to_placename_field field_value, field, displayvalue = nil
-    if params[:f] && params[:f][field] && params[:f][field].include?(field_value)
-      new_params = params.permit(:coordinates, :spatial_search_type, :view, :controller, :action)
+    if params.dig(:f).dig(field).include?(field_value)
+      new_params = params.permit(:exhibit_id, :coordinates, :spatial_search_type, :view, :controller, :action, f: {})
     else
       new_params = search_state.add_facet_params(field, field_value)
     end
