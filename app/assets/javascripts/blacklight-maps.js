@@ -1,5 +1,5 @@
 // for Blacklight.onLoad:
-//= require blacklight/core
+//= require blacklight/blacklight
 
 //= require leaflet
 //= require leaflet.markercluster
