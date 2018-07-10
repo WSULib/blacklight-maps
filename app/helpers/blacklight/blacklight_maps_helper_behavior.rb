@@ -13,7 +13,7 @@ module Blacklight::BlacklightMapsHelperBehavior
     if block_given?
       content_tag(:div, options, &block)
     else
-      tag(:div, options)
+      tag.div options
     end
   end
 
