@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "blacklight", ">= 6.1.0"
   spec.add_dependency "bootstrap-sass", "~> 3.2"
   spec.add_dependency "leaflet-rails"
-  spec.add_dependency "leaflet-markercluster-rails"
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"

@@ -1,6 +1,6 @@
 require 'blacklight'
 require 'leaflet-rails'
-require 'leaflet-markercluster-rails'
+require 'rails-assets-leaflet.markercluster'
 
 module Blacklight
   module Maps
