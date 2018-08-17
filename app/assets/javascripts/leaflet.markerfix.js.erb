@@ -1,0 +1,7 @@
+delete L.Icon.Default.prototype._getIconUrl
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "<%= image_url('marker-icon-2x.png') %>",
+  iconUrl: "<%= image_url('marker-icon.png') %>",
+  shadowUrl: "<%= image_url('marker-shadow.png') %>",
+})

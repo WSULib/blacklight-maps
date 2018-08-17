@@ -3,5 +3,6 @@
 
 //= require leaflet
 //= require leaflet.markercluster
+//= require leaflet.markerfix
 
 //= require_tree .
